@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Bite House - FastTrack Delivery</title>
+  <link rel="stylesheet" href="../style/global.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Lilita+One&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Cabeçalho da página -->
+  <header class="header">
+    <nav class="nav">
+      <div class="logo-container">
+        <img src="../img/img cardapio/WhatsApp Image 2025-01-31 at 15.59.22.jpeg" alt="Logotipo Bite House" class="logo">
+        <h1>FastTrack Delivery</h1>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#Cardápio">Cardápio BH</a></li>
+      </ul>
+    </nav>
+    <!-- Carrinho -->
+    <div id="top-cart" class="cart-container">
+      <button onclick="exibirCarrinho()">🛒 Carrinho (<span id="cart-count">0</span>)</button>
+      <div id="cart-modal" class="cart-modal hidden">
+        <h2>Seu Carrinho</h2>
+        <ul id="cart-items"></ul>
+        <p>Total: R$ <span id="cart-total">0.00</span></p>
+        <a href="../abas/app.html">  <button onclick="finalizarCompra()">Finalizar Compra</button> </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Corpo da Página -->
+  <main>
+    <div class="carrossel-container">
+        <div class="carrossel">
+            <div class="carrossel-item">
+                <img src="../img/img carrossel/Design sem nome.gif" alt="Imagem 1">
+            </div>
+            <div class="carrossel-item">
+                <img src="../img/img carrossel/Food and Beverage Trade Show Banner in Orange Vibrant Cutouts Style.gif" alt="Imagem 2">
+            </div>
+            <div class="carrossel-item">
+                <img src="../img/img carrossel/Design sem nome.gif" alt="Imagem 1">
+            </div>
+            <div class="carrossel-item">
+                <img src="../img/img carrossel/Food and Beverage Trade Show Banner in Orange Vibrant Cutouts Style.gif" alt="Imagem 2">
+            </div>
+            <div class="carrossel-item">
+                <img src="../img/img carrossel/Design sem nome.gif" alt="Imagem 1">
+            </div>
+            <div class="carrossel-item">
+                <img src="../img/img carrossel/Food and Beverage Trade Show Banner in Orange Vibrant Cutouts Style.gif" alt="Imagem 2">
+            </div>
+           
+        </div>
+       
+    </div>
+    <!-- Seção Menu -->
+    <section id="menu" class="section menu">
+      <h2>Nosso Menu</h2>
+      <div class="card-container">
+        <div class="card" onclick="adicionarAoCarrinho('Hambúrguer', 25.00)">
+          <img src="../img/img cardapio/hamburguer.jpeg" alt="Hambúrguer">
+          <p><strong>Hambúrguer - R$25,00</strong></p>
+          <p>Três carnes grelhadas no fogo como churrasco, cheddar fatiado, bacon e molho.</p>
+        </div>
+        <div class="card" onclick="adicionarAoCarrinho('Pizza', 40.00)">
+          <img src="../img/img cardapio/pizza.jpeg" alt="Pizza">
+          <p><strong>Pizza - R$40,00</strong></p>
+          <p>Pizza com molho de tomate, recheio de calabresa e cebola roxa.</p>
+        </div>
+        <div class="card" onclick="adicionarAoCarrinho('Batata Frita', 15.00)">
+          <img src="../img/img cardapio/batata frita.jpeg" alt="Batata Frita">
+          <p><strong>Batata Frita - R$7,00</strong></p>
+          <p>Crocantes e irresistíveis, podem vir no tamanho pequeno, médio e grande.</p>
+        </div>
+        <div class="card" onclick="adicionarAoCarrinho('Cachorro-Quente', 12.00)">
+          <img src="../img/img cardapio/hot dog.jpeg" alt="Hot Dog">
+          <p><strong>Cachorro-Quente - R$12,00</strong></p>
+          <p>Moho de carne, salsicha, bacon e maionese artesanal.</p>
+        </div>
+        <div class="card" onclick="adicionarAoCarrinho('Churrasco', 20.00)">
+          <img src="../img/img cardapio/churras.jpeg" alt="Churras">
+          <p><strong>Churrasco - R$20,00</strong></p>
+          <p>1 corte de picanha maturada e 2 linguiças suínas.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Promoções -->
+    <section id="promo" class="section promo">
+      <h2>Promoções Especiais</h2>
+      <div class="promo-container">
+        <div class="promo-item">
+          <img src="../img/img cardapio/burgues.jpeg" alt="Promoção 1">
+          <h3>Desconto em Hambúrgueres!</h3>
+          <p>Compre 1 Hambúrguer e ganhe 50% de desconto no segundo. Só até o final do mês!</p>
+          <button onclick="verDetalhes('promo1')">Ver Detalhes</button>
+        </div>
+        <div class="promo-item">
+          <img src="../img/img cardapio/piza.jpeg" alt="Promoção 2">
+          <h3>Combo Família</h3>
+          <p>Leve 1 Pizza Grande e 1 Batata Frita com 20% de desconto. Aproveite já!</p>
+          <button onclick="verDetalhes('promo2')">Ver Detalhes</button>
+        </div>
+        <div class="promo-item">
+          <img src="../img/img cardapio/potate.jpeg" alt="Promoção 3">
+          <h3>Promoção Batata + Bebida</h3>
+          <p>Compre uma Batata com cheddar e bacon e leve uma bebida grátis. Só hoje!</p>
+          <button onclick="verDetalhes('promo3')">Ver Detalhes</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="section menu">
+      <h2>Bebidas e Sobremesas</h2>
+      <div class="card-container">
+        <div class="card" onclick="adicionarAoCarrinho('petit gateau', 25.00)">
+          <img src="../img/img cardapio/petit gateau.jpeg" alt="petit gateau">
+          <p><strong>Petit Gateau - R$27,90</strong></p>
+          <p>Bolo de chocolate consistente por fora e cremoso por dentro.</p>
+        </div>
+        <div class="card" onclick="adicionarAoCarrinho('coca', 40.00)">
+          <img src="../img/img cardapio/coca.webp" alt="Coca cola">
+          <p><strong>Coca Cola - R$6,00</strong></p>
+          <p></p>
+        </div>
+        <div class="card" onclick="adicionarAoCarrinho('MIlk Shake', 15.00)">
+          <img src="../img/img cardapio/milk.jpeg" alt="MIlk Shake">
+          <p><strong>Milk Shake - R$15,00</strong></p>
+          <p>Aquele Milk Shake, feito com mix sabor baunilha e aquele crocante que você conhece.</p>
+        </div>
+        <div class="card" onclick="adicionarAoCarrinho('Guaraná', 12.00)">
+          <img src="../img/img cardapio/guarana.webp" alt="Guaraná">
+          <p><strong>Guaraná Antártica - R$6,00</strong></p>
+          <p></p>
+        </div>
+        <div class="card" onclick="adicionarAoCarrinho('Brownie', 20.00)">
+          <img src="../img/img cardapio/brownie.jpeg" alt="Brownie">
+          <p><strong>Brownie - R$4,50</strong></p>
+          <p>Brownie Recheado de brigadeiro de chocolate</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer id="contato" class="footer">
+    <div class="footer-links">
+      <ul>
+        <li><a href="#">App BH</a></li>
+        <li><a href="#">Sobre o BH</a></li>
+        <li><a href="#">Seja um franqueado</a></li>
+        <li><a href="#">Diretrizes de Privacidade de Dados</a></li>
+        <li><a href="#">Política de Publicidade Infantil</a></li>
+        <li><a href="#">Informações Legais</a></li>
+        <li><a href="#">Opções de Privacidade</a></li>
+        <li><a href="#">Compartilhe algo delicioso</a></li>
+      </ul>
+    </div>
+    <p>Imagens meramente ilustrativas. Consulte os restaurantes participantes. TM & © 2025 bITE hOUSE Corporation. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+
+    let indiceAtual = 0;
+
+    // Função para avançar o carrossel
+    function mudarCarrossel(direcao) {
+        const itens = document.querySelectorAll('.carrossel-item');
+        const totalItens = itens.length;
+        indiceAtual += direcao;
+
+        if (indiceAtual >= totalItens) {
+            indiceAtual = 0;  // Volta para o início quando chega no final
+        }
+
+        const carrossel = document.querySelector('.carrossel');
+        carrossel.style.transform = `translateX(-${indiceAtual * 100}%)`;
+    }
+
+    // Função para iniciar o carrossel automático
+    function iniciarCarrosselAutomatico() {
+        setInterval(function() {
+            mudarCarrossel(1);  // Avança para a direita a cada 3 segundos
+        }, 3000); // Intervalo de 3 segundos
+    }
+
+    // Chama a função para iniciar o carrossel automático ao carregar a página
+    iniciarCarrosselAutomatico();
+
+    /*-----------------------------------------------------------------------*/
+    let carrinho = [];
+
+// Função para adicionar ao carrinho
+function adicionarAoCarrinho(nome, preco) {
+  const itemExistente = carrinho.find(item => item.nome === nome);
+  
+  if (itemExistente) {
+    itemExistente.quantidade++;
+  } else {
+    carrinho.push({ nome, preco, quantidade: 1 });
+  }
+  atualizarCarrinho();
+}
+
+// Função para remover item do carrinho
+function removerDoCarrinho(nome) {
+  const itemIndex = carrinho.findIndex(item => item.nome === nome);
+
+  if (itemIndex !== -1) {
+    const item = carrinho[itemIndex];
+    
+    if (item.quantidade > 1) {
+      item.quantidade--;
+    } else {
+      carrinho.splice(itemIndex, 1); // Remove o item completamente
+    }
+  }
+
+  atualizarCarrinho();
+}
+
+// Função para atualizar a exibição do carrinho
+function atualizarCarrinho() {
+  const cartCount = document.getElementById("cart-count");
+  const cartItems = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+
+  cartItems.innerHTML = '';
+  let total = 0;
+
+  carrinho.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = `${item.nome} - R$${(item.preco * item.quantidade).toFixed(2)} (${item.quantidade}x)`;
+
+    // Adiciona botão de remover
+    const removerBtn = document.createElement("button");
+    removerBtn.textContent = "Remover";
+    removerBtn.onclick = () => removerDoCarrinho(item.nome);
+    li.appendChild(removerBtn);
+
+    cartItems.appendChild(li);
+    total += item.preco * item.quantidade;
+  });
+
+  cartTotal.textContent = total.toFixed(2);
+  cartCount.textContent = carrinho.length;
+}
+
+// Função para exibir o carrinho
+function exibirCarrinho() {
+  document.getElementById("cart-modal").classList.toggle("hidden");
+}
+
+// Função para finalizar a compra
+function finalizarCompra() {
+  if (carrinho.length === 0) {
+    alert("Carrinho vazio! Adicione itens para finalizar a compra.");
+  } else {
+    // Lógica para finalizar a compra
+    alert("Compra finalizada com sucesso!");
+    carrinho = []; // Limpar o carrinho após finalizar
+    atualizarCarrinho();
+    document.getElementById("pagamento").classList.remove("hidden");
+    document.getElementById("cart-modal").classList.add("hidden");
+  }
+}
+
+// Função para processar o pagamento com PIX
+function processarPagamentoPix() {
+  const chavePix = "12345678901@mercadolivre.com.br";
+  alert("Para realizar o pagamento, use o código PIX: " + chavePix);
+}
+
+// Função para mostrar detalhes da promoção
+function verDetalhes(promoId) {
+  switch(promoId) {
+    case 'promo1':
+      alert("Promoção de Hambúrgueres: Compre 1 Hambúrguer e ganhe 50% de desconto no segundo. Só até o final do mês!");
+      break;
+    case 'promo2':
+      alert("Combo Família: Leve 1 Pizza Grande e 1 Batata Frita com 20% de desconto. Aproveite já!");
+      break;
+    case 'promo3':
+      alert("Promoção Batata + Bebida: Compre uma Batata com cheddar e bacon e leve uma bebida grátis. Só hoje!");
+      break;
+    default:
+      alert("Promoção não encontrada.");
+  }
+}
+
+// Evento de envio do formulário de cadastro
+document.getElementById("cadastro-form").addEventListener("submit", function(event) {
+  event.preventDefault();
+  const nome = document.getElementById("nome").value;
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
+
+  alert(`Cadastro realizado com sucesso!\nNome: ${nome}\nE-mail: ${email}`);
+
+});
+
+/*carrossel --------------------------------------------------------------------------------*/
+
+
+  </script>
+</body>
+</html>

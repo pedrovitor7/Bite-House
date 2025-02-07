@@ -1,0 +1,33 @@
+.carrossel-container {
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    z-index: -1;
+}
+.carrossel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+.carrossel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+.carrossel-item img, .carrossel-item video {
+    width: 100%;
+    height: auto;
+}
+.botao {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+}
+.botao-direita {
+    right: 0;
+}
